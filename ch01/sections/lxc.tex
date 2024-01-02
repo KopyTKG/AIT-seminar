@@ -1,0 +1,35 @@
+\section{LXC}
+LXC (Linux Containers) je technologie pro virtualizaci na úrovni operačního systému, která je implementována v Linuxovém jádře. LXC umožňuje uživatelům spouštět více izolovaných instancí operačního systému na jednom hostitelském systému. Zde je podrobnější vysvětlení, jak LXC funguje:
+
+\subsection{Základní Koncepty:}
+\begin{itemize}[label=]
+    \item \textbf{Namespaces:} LXC využívá Linuxové namespaces pro izolaci aplikací a procesů. Namespaces oddělují systémové aspekty (jako jsou síť, uživatelé, souborový systém atd.), což umožňuje každému kontejneru mít vlastní izolované prostředí, které se jeví jako samostatný systém.
+    \item \textbf{Control Groups (cgroups):} Cgroups omezují a monitorují zdroje, které mohou být používány procesy. Pomocí cgroups může LXC kontrolovat a omezovat, kolik CPU, paměti, síťové kapacity a dalších zdrojů může každý kontejner využívat.
+\end{itemize}
+
+\subsection{Izolace a Bezpečnost:}
+\begin{itemize}[label=]
+    \item LXC poskytuje silnou izolaci mezi kontejnery a mezi kontejnery a hostitelským systémem. To je zásadní pro bezpečnost, protože procesy běžící v jednom kontejneru nemohou přistupovat k procesům nebo zdrojům jiných kontejnerů nebo hostitelského systému.
+    \item Bezpečnostní funkce, jako jsou AppArmor nebo SELinux, mohou být použity pro další zabezpečení kontejnerů, například omezují, které systémové volání mohou kontejnery používat.
+\end{itemize}
+
+\subsection{Architektura a Výkon:}
+\begin{itemize}[label=]
+    \item Na rozdíl od plné virtualizace, jako je KVM nebo Xen, LXC neemuluje hardwarovou vrstvu. Místo toho všechny kontejnery sdílejí stejné jádro hostitelského systému. Tato "lehká" virtualizace vede k menší režii, vyššímu výkonu a rychlejšímu spouštění kontejnerů.
+    \item Kontejnery LXC mohou běžet různé distribuce Linuxu, což umožňuje flexibilní nasazení aplikací bez ohledu na distribuci hostitelského systému.
+\end{itemize}
+
+\subsection{Správa a Použití:}
+\begin{itemize}[label=]
+    \item LXC je vybaveno nástroji pro snadné vytváření, spouštění, zastavování a spravování kontejnerů. Tyto nástroje umožňují uživatelům efektivně spravovat životní cyklus kontejnerů.
+    \item Kontejnery lze použít pro širokou škálu aplikací, od izolovaných prostředí pro vývoj a testování po nasazení produkčních aplikací.
+\end{itemize}
+
+\subsection{Integrace a Rozšiřitelnost:}
+\begin{itemize}[label=]
+    \item LXC je často využíváno jako základ pro vyšší úrovni kontejnerových orchestrací a management nástrojů, jako je Docker a Kubernetes, i když tyto nástroje v současné době používají vlastní kontejnerové runtime.
+    \item Prostřednictvím LXC API mohou vývojáři integrovat funkce kontejnerů do svých aplikací nebo vytvářet vlastní nástroje pro správu kontejnerů.
+\end{itemize}
+
+\noindent
+V souhrnu, LXC poskytuje efektivní, bezpečnou a flexibilní platformu pro běh izolovaných Linuxových prostředí na jednom hostitelském systému, využívající přitom výhod Linuxového jádra a jeho schopností. Tato technologie je klíčová pro moderní cloudové a kontejnerové řešení.

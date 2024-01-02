@@ -7,6 +7,9 @@ DOCNAME = Master
 
 all: compile clean
 
+dev: 
+	${TEXCOMPILER} ${DOCNAME}.tex
+
 all-no-bibtex: compile-no-bibtex clean
 
 compile: ${DOCNAME}.tex

@@ -9,7 +9,7 @@
 %%% Údaje o~práci
 
 %%% Název práce v~jazyce práce (přesně podle zadání)
-\def\NazevPrace{Virtualizační platforma Proxmox}
+\def\NazevPrace{Proxmox}
 
 %%% Název práce v~angličtině
 \def\NazevPraceEN{\todo{Title}}
@@ -78,7 +78,7 @@
 
 
 \renewcommand{\bibname}{Seznam použité literatury}
-\addbibresource{99-literature/literature.bib}
+\addbibresource{\/literature.bib}
 
 %% Titulní strana a~různé povinné informační strany
 \begin{document}
@@ -89,12 +89,13 @@
 \tableofcontents
 
 %%% Jednotlivé kapitoly práce jsou pro přehlednost uloženy v~samostatných souborech
-\include{00/predmluva}
-\include{01/historie}
+\include{\chapterpath{00}/historie}
+\include{\chapterpath{01}/virtualizace}
+\include{\chapterpath{99}/casti}
 % \include{\chapterpath{01}/ch01_limity.tex}
 
 %%% Seznam použité literatury
-\include{99-literature/literature}
+\include{\literaturepath/literature}
 
 %%% Obrázky v~bakalářské práci
 %%% (pokud jich je malé množství, obvykle není třeba seznam uvádět)

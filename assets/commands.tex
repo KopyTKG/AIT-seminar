@@ -1,11 +1,4 @@
 
-% Toto makro definuje kapitolu, která není očíslovaná, ale je uvedena v~obsahu.
-\def\chapwithtoc#1{
-\chapter*{#1}
-\addcontentsline{toc}{chapter}{#1}
-}
-
-
 \DefineBibliographyStrings{czech}{ % Definování vlastního názvu pro bibliografii v češtině
   bibliography = Seznam použité literatury,
 }
@@ -13,6 +6,10 @@
 % TODO
 \newcommand{\todo}[1]{\textcolor{red}{(\noindent TODO: #1.)}}
 
+% Paths
+\newcommand{\chapterpath}[1]{ch#1}
+\newcommand{\sectionpath}[1]{ch#1/sections}
+\newcommand{\literaturepath}{literature}
 
 % Celá jména
 \newcommand{\name}[1]{\mbox{\textsc{#1}}}
