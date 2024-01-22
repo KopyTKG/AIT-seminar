@@ -1,0 +1,15 @@
+\chapter{Zálohování a obnova}
+
+Zálohování lze provést již na platformě Proxmox VE, ale tato metoda není doporučovaná. Pro bezpečnost a dostipnost záloh byla vyvinuta platforma Proxmox Backup Server, která využívá úložistě Ceph pro zaručení dostupnosti záloh. Tato platforma přináší integrované a efektivní řešení pro zálohování virtuálních strojů (VM) a kontejnerů, poskytujíc robustní ochranu dat v prostředích virtualizace.
+
+Proxmox Backup Server je navržen tak, aby efektivně zálohoval VM a kontejnery spravované v Proxmox VE. Umožňuje uživatelům vytvářet plné i inkrementální zálohy, což minimalizuje nároky na úložný prostor a zajišťuje, že zálohy jsou rychlé a efektivní. Inkrementální zálohy zaznamenávají pouze změny od posledního zálohování, což snižuje objem přenesených a uložených dat.
+
+Bezpečnost je klíčovou součástí Proxmox Backup Serveru. Nabízí šifrování na straně klienta, což znamená, že data jsou šifrována před odesláním na zálohovací server a zůstávají šifrována během uložení. Toto zajišťuje vysokou úroveň ochrany dat a je nezbytné pro splnění přísných bezpečnostních požadavků.
+
+Proxmox Backup Server využívá deduplikaci a kompresi dat, aby maximalizoval účinnost úložiště. Deduplikace umožňuje serveru identifikovat a odstranit duplicitní data napříč všemi zálohami, což výrazně snižuje potřebný úložný prostor. Kompresie dále redukuje velikost dat, což zvyšuje efektivitu přenosu dat a úložiště.
+
+Proxmox Backup Server podporuje různé typy úložišť, včetně lokálních disků, NFS a Ceph. To umožňuje uživatelům volit úložiště, které nejlépe vyhovuje jejich specifickým potřebám a rozpočtu.
+
+Proxmox Backup Server je snadno integrovatelný s existujícím Proxmox VE prostředím. Nabízí jednoduché webové rozhraní pro správu zálohovacích úloh, sledování stavu záloh a obnovu dat. Toto intuitivní rozhraní usnadňuje správu záloh i pro uživatele, kteří nejsou odborníky na zálohování.
+
+Obnova dat je klíčovou funkcí Proxmox Backup Serveru. Umožňuje rychlou a snadnou obnovu celých VM, jednotlivých disků nebo souborů. Díky tomu je možné efektivně reagovat na různé scénáře ztráty dat, od jednoduchých chyb uživatele po vážná hardwarová selhání.

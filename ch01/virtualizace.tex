@@ -1,6 +1,13 @@
-\chapter{Jádro virtualizace}
-Jádrem platformy Proxmox je Proxmox VE, robustní virtualizační řešení založené na Linuxu, které kombinuje KVM (Kernel-based Virtual Machine) a LXC (Linux Containers) technologie.
+\chapter{virtualizační jádro}
+Proxmox VE (Virtual Environment) představuje jeden z předních nástrojů v oblasti virtualizačních technologií, stojící na základech Linuxu a jeho pokročilých funkcí. Jádrem Proxmoxu jsou technologie LXC (Linux Containers) a KVM (Kernel-based Virtual Machine), které jsou integrálními součástmi Linuxového jádra již od verze 2.6. Tyto technologie poskytují základ pro vytváření vysoce výkonného a škálovatelného prostředí, které je ideální pro správu virtualizovaných datových center.
 
+KVM v Proxmoxu umožňuje plnou hardwarovou virtualizaci, díky čemuž mohou být virtuální stroje (VM) spouštěny s vlastním izolovaným operačním systémem, nabízejícím výkon srovnatelný s fyzickými servery. Na druhou stranu, LXC poskytuje lehkou virtualizaci na úrovni kontejnerů, která je vhodná pro aplikace vyžadující rychlé nasazení a efektivní využití zdrojů.
+
+Proxmox VE vyniká také svým intuitivním webovým uživatelským rozhraním, které zjednodušuje správu virtualizovaných prostředí. Správci mohou snadno vytvářet, konfigurovat a spravovat virtuální stroje a kontejnery, stejně jako řídit síťové a úložné zdroje. Tato centralizovaná správa zvyšuje efektivitu a snižuje komplexitu správy datových center.
+
+Další významnou vlastností Proxmoxu je jeho vysoká dostupnost a podpora pro clusterování, což umožňuje vytvářet redundantní a odolné systémy. Proxmox podporuje různé typy úložných řešení, včetně Ceph, NFS, iSCSI, což umožňuje flexibilní a škálovatelné možnosti pro ukládání dat.
+
+Za svou popularitu vděčí Proxmox VE také aktivní a rozsáhlé komunitě uživatelů a vývojářů, kteří neustále přispívají k jeho rozvoji a inovaci. Díky tomu je Proxmox VE neustále na špici technologického pokroku, poskytujíc nejnovější funkce a zabezpečení pro efektivní správu datových center.
 %%% LXC
 \input{\sectionpath{01}/lxc}
 

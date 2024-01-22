@@ -1,0 +1,19 @@
+\chapter{Uložistě}
+
+Proxmox nabízí širokou škálu možností úložiště, které jsou klíčové pro efektivní správu dat a zdrojů v virtualizovaných prostředích. Tyto možnosti úložiště se pohybují od lokálního úložiště po sofistikovaná síťová řešení, což umožňuje uživatelům Proxmoxu přizpůsobit úložiště podle specifických potřeb a požadavků jejich aplikací a služeb.
+
+Dále také umožňuje použití lokálních disků na hostitelských serverech pro ukládání dat. Toto řešení je vhodné pro menší nasazení nebo pro úložiště, které nevyžaduje vysokou dostupnost. Lokální úložiště poskytuje výhody, jako jsou nízké latence a vysoký výkon, avšak nemá vlastnosti vysoké dostupnosti, které jsou kritické pro větší a náročnější prostředí.
+
+Proxmox podporuje síťové úložiště, jako jsou NFS (Network File System) a iSCSI (Internet Small Computer Systems Interface). Tato úložiště jsou ideální pro prostředí vyžadující vysokou dostupnost a sdílení dat mezi více servery. NFS je často využíván pro sdílení souborů, zatímco iSCSI poskytuje blokové úložiště, což je užitečné pro výkonné databázové servery a aplikace s vysokými nároky na I/O operace.
+
+Ceph je vysoce škálovatelné distribuované úložiště, které se stává čím dál oblíbenějším v prostředí Proxmoxu. Nabízí vysokou dostupnost, vynikající škálovatelnost a vlastnosti samoopravy. Ceph je ideální pro velká a dynamická prostředí, kde je potřeba pružně reagovat na měnící se požadavky na úložný prostor a výkon.
+
+Proxmox VE také podporuje ZFS, pokročilý souborový systém a logický správce svazků. ZFS nabízí integrované funkce, jako jsou snímky, replikace a šifrování. ZFS je obzvláště užitečný pro zálohování a archivaci dat díky jeho schopnosti efektivně spravovat velké objemy dat a poskytovat robustní ochranu proti poškození dat.
+
+Proxmox VE zahrnuje nástroje pro zálohování a obnovu virtuálních strojů a kontejnerů. Tyto nástroje umožňují pravidelně plánovat zálohy, což je zásadní pro ochranu dat a rychlou obnovu v případě selhání systému.
+
+Ve výsledku Proxmox VE poskytuje flexibilní a škálovatelné úložné řešení, které se dá přizpůsobit různým potřebám a požadavkům datových center. Od lokálního úložiště pro rychlé a jednoduché nasazení až po komplexní distribuované systémy, jako je Ceph pro velké a dynamické prostředí, nabízí Proxmox širokou paletu možností pro efektivní správu dat.
+
+
+\input{\sectionpath{03}/ceph}
+

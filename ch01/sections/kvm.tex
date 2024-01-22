@@ -1,65 +1,29 @@
 \section{KVM}
 KVM (Kernel-based Virtual Machine) je open-source virtualizační technologie pro Linux, která umožňuje transformovat Linux na hypervisor typu 1. Tato technologie využívá virtualizační funkce moderních procesorů, jako jsou Intel VT-x a AMD-V, a integruje se přímo do Linuxového jádra. Zde je podrobnější pohled na to, jak KVM funguje:
 
-\subsection{Základní Principy}
+% \subsection{Základní Principy}
 KVM se stává součástí Linuxového jádra, což znamená, že každý Linuxový server s odpovídajícím jádrem a podporovaným hardwarem může fungovat jako hypervisor.
 KVM přidává do jádra funkce pro správu a spouštění virtuálních strojů (VM), zatímco samotné VM jsou standardní Linuxové procesy, řízené plánovačem jádra.
 
-\subsection{Hardwarová Virtualizace}
+% \subsection{Hardwarová Virtualizace}
 KVM využívá hardwarovou podporu pro virtualizaci, která je poskytována moderními procesory. Tato hardwarová podpora umožňuje KVM efektivně spouštět izolované VM, každý s vlastním virtuálním hardwarem, včetně CPU, paměti, disků a síťových adaptérů.
 Virtualizovaný hardware VM je emulován pomocí QEMU (Quick Emulator), který poskytuje emulaci zařízení pro VM.
 
-\subsection{Vytváření a Správa VM}
+% \subsection{Vytváření a Správa VM}
 VM jsou v KVM vytvářeny a spravovány pomocí standardních nástrojů pro virtualizaci, jako je libvirt a jeho nástroj virsh, nebo grafická rozhraní jako virt-manager.
 Každý VM je izolován od ostatních VM a od hostitelského systému, což zajišťuje bezpečnost a stabilitu.
 
-\subsection{Výkon a Škálovatelnost}
+% \subsection{Výkon a Škálovatelnost}
 Díky hardwarové podpoře a úzké integraci s Linuxovým jádrem nabízí KVM vynikající výkon a škálovatelnost, což je ideální pro náročné serverové a cloudové prostředí.
 KVM podporuje funkce jako NUMA (Non-Uniform Memory Access), což umožňuje efektivní využívání paměti v multiprocesorových systémech.
 
-\subsection{Bezpečnost a Izolace}
+% \subsection{Bezpečnost a Izolace}
 VM v KVM jsou dobře izolovány díky použití hardwarových funkcí virtualizace a bezpečnostních mechanismů Linuxu, jako jsou SELinux a cgroups.
 Tato izolace pomáhá chránit před škodlivým softwarem a zajišťuje, že chyba nebo selhání jednoho VM neovlivní ostatní VM nebo hostitelský systém.
 
-\subsection{Live Migrace}
+% \subsection{Live Migrace}
 KVM podporuje live migraci, což umožňuje přesunutí běžících VM z jednoho fyzického serveru na druhý bez výpadku služby. Toto je klíčové pro údržbu a řízení zatížení v datových centrech.
 
-\subsection{Ekosystém a Integrace}
+% \subsection{Ekosystém a Integrace}
 KVM je široce podporován v rámci Linuxové komunity a integruje se s mnoha dalšími technologiemi a nástroji, což umožňuje širokou škálu použití od jednoduchých virtuálních hostů až po komplexní cloudové řešení.
 V souhrnu, KVM je výkonný a efektivní nástroj pro virtualizaci, který poskytuje robustní, bezpečnou a škálovatelnou platformu pro správu a provoz virtuálních strojů v Linuxovém prostředí.
-
-\subsection{Podporované formáty}
-KVM (Kernel-based Virtual Machine) podporuje různé formáty virtuálních disků, které se liší v několika klíčových aspektech, jako jsou výkon, flexibilita a podpora funkcí. Níže uvádím několik běžně používaných formátů a jejich hlavní rozdíly:
-
-\subsubsection*{Raw}
-\noindent
-Raw formát je nejzákladnější a nejjednodušší formát virtuálního disku. Reprezentuje data bez jakékoliv metadata nebo struktury, což znamená, že soubor raw disku je přímým obrazem obsahu disku.
-\begin{itemize}[label=]
-\item \textbf{Výhody:} Vynikající výkon díky absenci dodatečného zpracování. Je také univerzálně kompatibilní s různými hypervizory a nástroji pro virtualizaci.
-\item \textbf{Nevýhody:} Chybí mu pokročilé funkce jako snímky (snapshots), dynamické alokace velikosti a komprese.
-\end{itemize}
-\subsubsection*{qcow2 (QEMU Copy On Write verze 2)}
-\noindent
-qcow2 je pokročilý formát disku vytvořený pro QEMU (Quick Emulator). Nabízí řadu funkcí, jako jsou snímky, komprese a šifrování.
-\begin{itemize}[label=]
-\item \textbf{Výhody:} Podporuje dynamickou alokaci velikosti, což znamená, že soubor disku roste pouze při potřebě ukládat data. Možnost vytvářet snímky (snapshots) umožňuje snadnou zálohu a obnovu stavů virtuálního stroje.
-\item \textbf{Nevýhody:} Může mít mírně nižší výkon ve srovnání s raw formátem kvůli správě dodatečných funkcí.
-\end{itemize}
-
-\subsubsection*{VMDK (Virtual Machine Disk)}
-\noindent
-Formát vytvořený společností VMware, ale podporovaný i jinými hypervizory, včetně KVM. VMDK umožňuje ukládat virtuální disky jako jeden soubor nebo sadu souborů.
-\begin{itemize}[label=]
-\item \textbf{Výhody:} Dobrá podpora v různých virtualizačních technologiích, umožňuje snadné přenášení VM mezi různými platformami. Podporuje snímky a dynamickou alokaci.
-\item \textbf{Nevýhody:} Může být méně optimalizovaný pro KVM ve srovnání s formátem qcow2 nebo raw.
-\end{itemize}
-
-\subsubsection*{VHDX (Hyper-V Virtual Hard Disk v2)}
-\noindent
-VHDX je formát zavedený Microsoftem pro Hyper-V. Je navržen tak, aby zlepšil odolnost proti poškození dat a umožnil větší maximální velikosti disku.
-\begin{itemize}[label=]
-\item \textbf{Výhody:} Vyšší odolnost proti poškození dat, podpora pro velké disky (až 64 TB) a funkce, jako je bloková alokace a interní šifrování.
-\item \textbf{Nevýhody:} Méně běžný v prostředích KVM a může vyžadovat další konfiguraci pro optimální výkon a kompatibilitu.
-\end{itemize}
-
-Každý z těchto formátů má své specifické výhody a nevýhody a vhodnost každého formátu závisí na konkrétních požadavcích a prostředí, ve kterém je KVM používán. Například pro prostředí, kde je klíčová vysoká výkonnost a jednoduchost, může být vhodnější raw formát, zatímco
